@@ -1,21 +1,21 @@
 from prettytable import PrettyTable
 
 # data awal sudah ada
-data = [
-    {"id": 1, "nama": "Ujang", "kelas": "X-A"},
-    {"id": 2, "nama": "Asep", "kelas": "X-B"},
-    {"id": 3, "nama": "Budi", "kelas": "X-C"}
-]
+data = []
 
 def tambah_data():
     id_data = int(input("Masukkan ID: "))
     nama = input("Masukkan Nama: ")
     kelas = input("Masukkan Kelas: ")
+    setatus = input("Masukkan Setatus: ")
+    makanan = input("Masukkan Makanan Favorit: ")
+
 
     item = {
         "id": id_data,
         "nama": nama,
-        "kelas": kelas
+        "kelas": kelas,
+        "setatus": setatus
     }
 
     data.append(item)
@@ -26,10 +26,10 @@ def tampil_data():
         print("⚠️ Data masih kosong.")
     else:
         table = PrettyTable()
-        table.field_names = ["Index", "ID", "Nama", "Kelas"]
+        table.field_names = ["Index", "ID", "Nama", "Kelas", "Setatus", "Makanan Favorit"]
 
         for i in range(len(data)):
-            table.add_row([i, data[i]["id"], data[i]["nama"], data[i]["kelas"]])
+            table.add_row([i, data[i]["id"], data[i]["nama"], data[i]["kelas"], data[i]["setatus"], data[i]["makanan favorit"]])
 
         print(table)
 
@@ -41,6 +41,8 @@ def ubah_data():
             data[index]["id"] = int(input("Masukkan ID baru: "))
             data[index]["nama"] = input("Masukkan Nama baru: ")
             data[index]["kelas"] = input("Masukkan Kelas baru: ")
+            data[index]["setatus"] = input("Masukkan Setatus baru: ")
+            data[index]["makanan"] = input("Masukkan Makanan Favorit baru: ")
             print("✅ Data berhasil diubah!")
         else:
             print("❌ Index tidak valid.")
@@ -57,24 +59,24 @@ def hapus_data():
 
 # PROGRAM UTAMA
 while True:
-    print("\n=== MENU ===")
+    print("=== MENU ===")
     print("1. Tambah data")
     print("2. Tampilkan data")
     print("3. Ubah data")
     print("4. Hapus data")
     print("0. Keluar")
 
-    pilihan = input("Pilih menu: ")
+    pilihan = int(input("Pilih menu: "))
 
-    if pilihan == "1":
+    if pilihan == 1:
         tambah_data()
-    elif pilihan == "2":
+    elif pilihan == 2:
         tampil_data()
-    elif pilihan == "3":
+    elif pilihan == 3:
         ubah_data()
-    elif pilihan == "4":
+    elif pilihan == 4:
         hapus_data()
-    elif pilihan == "0":
+    elif pilihan == 0:
         print("👋 Program selesai.")
         break
     else:
