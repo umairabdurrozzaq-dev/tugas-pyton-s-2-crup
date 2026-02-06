@@ -7,15 +7,13 @@ def tambah_data():
     id_data = int(input("Masukkan ID: "))
     nama = input("Masukkan Nama: ")
     kelas = input("Masukkan Kelas: ")
-    setatus = input("Masukkan Setatus: ")
-    makanan = input("Masukkan Makanan Favorit: ")
+   
 
 
     item = {
         "id": id_data,
         "nama": nama,
         "kelas": kelas,
-        "setatus": setatus
     }
 
     data.append(item)
@@ -26,10 +24,10 @@ def tampil_data():
         print("⚠️ Data masih kosong.")
     else:
         table = PrettyTable()
-        table.field_names = ["Index", "ID", "Nama", "Kelas", "Setatus", "Makanan Favorit"]
+        table.field_names = ["Index", "ID", "Nama", "Kelas"]
 
         for i in range(len(data)):
-            table.add_row([i, data[i]["id"], data[i]["nama"], data[i]["kelas"], data[i]["setatus"], data[i]["makanan favorit"]])
+            table.add_row([i, data[i]["id"], data[i]["nama"], data[i]["kelas"]])
 
         print(table)
 
@@ -41,8 +39,6 @@ def ubah_data():
             data[index]["id"] = int(input("Masukkan ID baru: "))
             data[index]["nama"] = input("Masukkan Nama baru: ")
             data[index]["kelas"] = input("Masukkan Kelas baru: ")
-            data[index]["setatus"] = input("Masukkan Setatus baru: ")
-            data[index]["makanan"] = input("Masukkan Makanan Favorit baru: ")
             print("✅ Data berhasil diubah!")
         else:
             print("❌ Index tidak valid.")
